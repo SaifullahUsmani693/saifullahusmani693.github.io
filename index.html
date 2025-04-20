@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Saif Ullah Usmani is a freelance web developer specializing in Python, Django, ReactJS, and SaaS development. Contact him for custom software solutions.">
+    <meta name="keywords"
+        content="Saif Ullah Usmani, web developer, freelance, Python, Django, ReactJS, SaaS developer, custom software">
+    <meta name="author" content="Saif Ullah Usmani">
+    <meta name="fiverr" content="https://www.fiverr.com/saifullah02">
+    <meta name="upwork" content="https://www.upwork.com/freelancers/saifullahusmani">
+    <link rel="stylesheet" href="index.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saif Ullah Usmani</title>
+    <style>
+        :root {
+            --primary: #2a41e8;
+            --secondary: #e74c3c;
+            --dark: #2c3e50;
+            --light: #f5f7fa;
+            --gray: #95a5a6;
+            --success: #27ae60;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f2f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), #3f5efb);
+            color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .profile {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+        
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            color: var(--primary);
+            border: 5px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .profile-info p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .contact-links a {
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.3s;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .contact-links a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+        
+        main {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 30px;
+        }
+        
+        .sidebar, .content {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .skills-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: var(--light);
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), #3f5efb);
+            border-radius: 5px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+        
+        .education-item, .interests-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--light);
+        }
+        
+        .education-item:last-child, .interests-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .education-title {
+            font-weight: bold;
+        }
+        
+        .education-period {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .interests-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .interests-tag {
+            background-color: var(--light);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .project, .experience-item {
+            padding: 20px;
+            border-radius: 10px;
+            background-color: var(--light);
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+        
+        .project:hover, .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .project-title, .experience-position {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .project-link {
+            font-size: 0.9rem;
+            padding: 3px 10px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .project-link:hover {
+            background-color: #1e32c9;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: 10px 0;
+        }
+        
+        .tech-tag {
+            background-color: rgba(42, 65, 232, 0.1);
+            color: var(--primary);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        
+        .experience-company {
+            color: var(--secondary);
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .experience-period {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .responsibility-list {
+            list-style-type: none;
+        }
+        
+        .responsibility-list li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .responsibility-list li:before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .chart-container {
+            margin-top: 20px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding: 20px;
+            color: var(--gray);
+        }
+        
+        @media (max-width: 900px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+            
+            .profile {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-links {
+                justify-content: center;
+            }
+        }
+        
+        .animated-bar {
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), #3f5efb, var(--primary));
+            background-size: 200% 100%;
+            animation: gradient 2s ease infinite;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+        
+        .experience-years {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        
+        .exp-block {
+            text-align: center;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            flex: 1;
+            margin: 0 5px;
+        }
+        
+        .exp-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 5px;
+            position: relative;
+        }
+        
+        .exp-label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .circle-wrap {
+            margin: 20px auto;
+            width: 150px;
+            height: 150px;
+            background: #fefcff;
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .circle-wrap .circle .mask,
+        .circle-wrap .circle .fill {
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            border-radius: 50%;
+        }
+        
+        .circle-wrap .circle .mask {
+            clip: rect(0px, 150px, 150px, 75px);
+        }
+        
+        .circle-wrap .inside-circle {
+            width: 122px;
+            height: 122px;
+            border-radius: 50%;
+            background: #fff;
+            line-height: 120px;
+            text-align: center;
+            margin-top: 14px;
+            margin-left: 14px;
+            color: var(--dark);
+            position: absolute;
+            z-index: 100;
+            font-weight: 700;
+            font-size: 2em;
+        }
+        
+        .mask .fill {
+            clip: rect(0px, 75px, 150px, 0px);
+            background-color: var(--primary);
+        }
+        
+        .mask.full,
+        .circle .fill {
+            animation: fill ease-in-out 3s;
+            transform: rotate(180deg);
+        }
+        
+        @keyframes fill {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(180deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-bar"></div>
+    
+    <div class="container">
+        <header>
+            <div class="profile">
+                <div class="profile-pic">SU</div>
+                <div class="profile-info">
+                    <h1>Saif Ullah Usmani</h1>
+                    <p>Full Stack Developer with 7+ years of coding experience</p>
+                    <div class="contact-links">
+                        <a href="mailto:saifullahusmani693@gmail.com">📧 Email</a>
+                        <a href="tel:+923215519168">📱 +92 321 5519168</a>
+                        <a href="https://github.com/saifullahUsmani693/" target="_blank">💻 GitHub</a>
+                        <a href="https://www.linkedin.com/in/saifullahusmani/" target="_blank">🔗 LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="experience-years">
+            <div class="exp-block">
+                <div class="exp-number" id="coding-years">7+</div>
+                <div class="exp-label">Years Coding</div>
+            </div>
+            <div class="exp-block">
+                <div class="exp-number" id="freelance-years">3+</div>
+                <div class="exp-label">Years Freelancing</div>
+            </div>
+            <div class="exp-block">
+                <div class="exp-number" id="job-years">0.5</div>
+                <div class="exp-label">Years Professional</div>
+            </div>
+            <div class="exp-block">
+                <div class="exp-number" id="project-count">10+</div>
+                <div class="exp-label">Projects Completed</div>
+            </div>
+        </div>
+        
+        <main>
+            <div class="sidebar">
+                <div class="section">
+                    <h2 class="section-title">📊 Technical Skills</h2>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>ReactJS</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Django</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>HTML/CSS/JS</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>NextJS</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>DevOps (Docker, AWS)</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">🎓 Education</h2>
+                    <div class="education-item">
+                        <div class="education-title">Bachelors in Business Administration</div>
+                        <div class="education-period">2021 - Present</div>
+                        <div>Punjab University, Lahore</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">💡 Interests</h2>
+                    <div class="interests-list">
+                        <div class="interests-tag">🚀 Backend Optimization</div>
+                        <div class="interests-tag">🎬 Procedural Animations</div>
+                        <div class="interests-tag">🖱️ Drag & Drop Systems</div>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">⚙️ Development Focus</h2>
+                    <div class="chart-container">
+                        <div class="circle-wrap">
+                            <div class="circle">
+                                <div class="mask full">
+                                    <div class="fill"></div>
+                                </div>
+                                <div class="mask half">
+                                    <div class="fill"></div>
+                                </div>
+                                <div class="inside-circle">70%</div>
+                            </div>
+                        </div>
+                        <p style="text-align: center; margin-top: 10px;">Backend Development Focus</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content">
+                <div class="section">
+                    <h2 class="section-title">💼 Experience</h2>
+                    
+                    <div class="experience-item">
+                        <div class="experience-position">Software Engineer</div>
+                        <div class="experience-company">Full-time Position</div>
+                        <div class="experience-period">December 2024 - Present</div>
+                        <ul class="responsibility-list">
+                            <li>Working as a full-stack developer with focus on creating scalable applications</li>
+                            <li>Collaborating with cross-functional teams to deliver high-quality software solutions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="experience-item">
+                        <div class="experience-position">Software Engineer</div>
+                        <div class="experience-company">Freelance (Fiverr)</div>
+                        <div class="experience-period">September 2019 - Present</div>
+                        <ul class="responsibility-list">
+                            <li>Creating and delivering tailored SaaS solutions that meet client requirements and industry standards</li>
+                            <li>Designing scalable and efficient applications while collaborating closely with clients</li>
+                            <li>Building custom web applications with focus on performance and user experience</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="section">
+                    <h2 class="section-title">🚀 Projects</h2>
+                    
+                    <div class="project">
+                        <div class="project-title">
+                            <span>Grevent – Social Networking for Entrepreneurs</span>
+                            <a href="#" class="project-link">Link</a>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Celery</span>
+                            <span class="tech-tag">RabbitMQ</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">ReactJS</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                            <span class="tech-tag">Firebase</span>
+                        </div>
+                        <p>A feature-rich social networking platform for entrepreneurs with custom SEO engine, analytics system, feed, follow/follower features, chat application, and digital product sales through Stripe. Designed with scalability in mind to handle millions of users with optimized database queries and extensive caching.</p>
+                    </div>
+                    
+                    <div class="project">
+                        <div class="project-title">
+                            <span>ChopLine – Queue Management System</span>
+                            <a href="#" class="project-link">Link</a>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">ReactJS</span>
+                            <span class="tech-tag">TailwindCSS</span>
+                            <span class="tech-tag">WebSockets</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                        <p>A comprehensive queue and kiosk management system for salons and barbershops featuring real-time updates via WebSockets, unified appointment & walk-in dashboard, staff management, service catalog, and detailed analytics. Deployed on AWS ECS with 99.9% uptime and ability to handle hundreds of concurrent sessions.</p>
+                    </div>
+                    
+                    <div class="project">
+                        <div class="project-title">
+                            <span>Kachina Contracting CRM</span>
+                            <a href="#" class="project-link">Link</a>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">ReactJS</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">Material UI</span>
+                        </div>
+                        <p>A custom CRM for physical businesses with team management, job scheduling, employee time tracking, and Google Maps-based client address system. Includes user-friendly chat system, project management, and automated proposal/contract system with online signing and payments.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2025 Saif Ullah Usmani | Full Stack Developer</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Animate skill bars on page load
+        window.addEventListener('load', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            });
+            
+            // Count up numbers
+            function countUp(element, target, duration, decimals = 0) {
+                let start = 0;
+                const step = target / (duration / 16);
+                const timer = setInterval(() => {
+                    start += step;
+                    if (start >= target) {
+                        element.textContent = target.toFixed(decimals);
+                        clearInterval(timer);
+                    } else {
+                        element.textContent = start.toFixed(decimals);
+                    }
+                    
+                    if (decimals > 0) {
+                        element.textContent += "+";
+                    } else {
+                        element.textContent += "+";
+                    }
+                }, 16);
+            }
+            
+            countUp(document.getElementById('coding-years'), 7, 1500);
+            countUp(document.getElementById('freelance-years'), 3, 1500);
+            countUp(document.getElementById('job-years'), 0.5, 1500, 1);
+            countUp(document.getElementById('project-count'), 10, 1500);
+        });
+    </script>
+</body>
+</html>

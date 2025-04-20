@@ -71,6 +71,9 @@
             color: var(--primary);
             border: 5px solid rgba(255, 255, 255, 0.3);
         }
+        .profile-pic-img{
+            border-radius: 50%;
+        }
         
         .profile-info h1 {
             font-size: 2.5rem;
@@ -121,6 +124,7 @@
         .section-title {
             font-size: 1.5rem;
             color: var(--primary);
+            margin-top: 20px;
             margin-bottom: 20px;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--light);
@@ -338,6 +342,7 @@
             display: flex;
             justify-content: space-between;
             margin-top: 30px;
+            margin-bottom: 30px;
         }
         
         .exp-block {
@@ -422,12 +427,13 @@
     </style>
 </head>
 <body>
-    <div class="animated-bar"></div>
     
     <div class="container">
         <header>
             <div class="profile">
-                <div class="profile-pic">SU</div>
+                <div class="profile-pic">
+                    <img src="./saifullahusmani.png" width="100%" class="profile-pic-img" alt="Saif Ullah Usmani" />
+                </div>
                 <div class="profile-info">
                     <h1>Saif Ullah Usmani</h1>
                     <p>Full Stack Developer with 7+ years of coding experience</p>
@@ -447,7 +453,7 @@
                 <div class="exp-label">Years Coding</div>
             </div>
             <div class="exp-block">
-                <div class="exp-number" id="freelance-years">3+</div>
+                <div class="exp-number" id="freelance-years">5+</div>
                 <div class="exp-label">Years Freelancing</div>
             </div>
             <div class="exp-block">
@@ -467,15 +473,6 @@
                     <div class="skills-list">
                         <div class="skill-item">
                             <div class="skill-name">
-                                <span>ReactJS</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 0%;" data-width="95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">
                                 <span>Django</span>
                                 <span>90%</span>
                             </div>
@@ -485,11 +482,20 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-name">
-                                <span>HTML/CSS/JS</span>
-                                <span>85%</span>
+                                <span>ReactJS</span>
+                                <span>90%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 0%;" data-width="85%"></div>
+                                <div class="skill-progress" style="width: 0%;" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>HTML/CSS/JS</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 0%;" data-width="95%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
@@ -504,10 +510,10 @@
                         <div class="skill-item">
                             <div class="skill-name">
                                 <span>DevOps (Docker, AWS)</span>
-                                <span>75%</span>
+                                <span>70%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 0%;" data-width="75%"></div>
+                                <div class="skill-progress" style="width: 0%;" data-width="70%"></div>
                             </div>
                         </div>
                     </div>
@@ -532,21 +538,9 @@
                 </div>
                 
                 <div class="section">
-                    <h2 class="section-title">⚙️ Development Focus</h2>
-                    <div class="chart-container">
-                        <div class="circle-wrap">
-                            <div class="circle">
-                                <div class="mask full">
-                                    <div class="fill"></div>
-                                </div>
-                                <div class="mask half">
-                                    <div class="fill"></div>
-                                </div>
-                                <div class="inside-circle">70%</div>
-                            </div>
-                        </div>
-                        <p style="text-align: center; margin-top: 10px;">Backend Development Focus</p>
-                    </div>
+                    <h2 class="section-title">🧔 About me</h2>
+                       
+                        <p style="margin-top: 10px;">I am a full stack web developer with strong focus on scalable architecture and exceptional error handling. My softwares are both user focused and developer focused. Their UI guides the user and helps them navigate the software easily while the code is structure in a way where there is no magic. Everybody can understand it and pick up where they left off.</p>
                 </div>
             </div>
             
@@ -582,7 +576,7 @@
                     <div class="project">
                         <div class="project-title">
                             <span>Grevent – Social Networking for Entrepreneurs</span>
-                            <a href="#" class="project-link">Link</a>
+                            <a href="https://grevent.attiriza.com/" class="project-link">Link</a>
                         </div>
                         <div class="tech-stack">
                             <span class="tech-tag">Django</span>
@@ -600,15 +594,12 @@
                     <div class="project">
                         <div class="project-title">
                             <span>ChopLine – Queue Management System</span>
-                            <a href="#" class="project-link">Link</a>
+                            <a href="https://chopline.com/" class="project-link">Link</a>
                         </div>
                         <div class="tech-stack">
                             <span class="tech-tag">Django</span>
                             <span class="tech-tag">ReactJS</span>
-                            <span class="tech-tag">TailwindCSS</span>
-                            <span class="tech-tag">WebSockets</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">TailwindCSS</span>                            
                         </div>
                         <p>A comprehensive queue and kiosk management system for salons and barbershops featuring real-time updates via WebSockets, unified appointment & walk-in dashboard, staff management, service catalog, and detailed analytics. Deployed on AWS ECS with 99.9% uptime and ability to handle hundreds of concurrent sessions.</p>
                     </div>
@@ -616,7 +607,7 @@
                     <div class="project">
                         <div class="project-title">
                             <span>Kachina Contracting CRM</span>
-                            <a href="#" class="project-link">Link</a>
+                            <a href="https://freelancesaifi.pythonanywhere.com/" class="project-link">Link</a>
                         </div>
                         <div class="tech-stack">
                             <span class="tech-tag">Django</span>
@@ -668,9 +659,9 @@
             }
             
             countUp(document.getElementById('coding-years'), 7, 1500);
-            countUp(document.getElementById('freelance-years'), 3, 1500);
+            countUp(document.getElementById('freelance-years'), 5, 1500);
             countUp(document.getElementById('job-years'), 0.5, 1500, 1);
-            countUp(document.getElementById('project-count'), 10, 1500);
+            countUp(document.getElementById('project-count'), 50, 1500);
         });
     </script>
 </body>

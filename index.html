@@ -10,10 +10,6 @@
     <meta name="author" content="Saif Ullah Usmani">
     <meta name="fiverr" content="https://www.fiverr.com/saifullah02">
     <meta name="upwork" content="https://www.upwork.com/freelancers/saifullahusmani">
-    <link rel="stylesheet" href="index.css">
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saif Ullah Usmani</title>
     <style>
         :root {
@@ -134,38 +130,39 @@
         }
         
         .skills-list {
-            display: flex;
-            flex-direction: column;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
         }
         
         .skill-item {
-            margin-bottom: 15px;
+            background: var(--light);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-item:hover {
+            transform: translateY(-3px);
+        }
+        
+        .skill-icon {
+            font-size: 1.2rem;
         }
         
         .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
+            flex: 1;
+            font-size: 0.95rem;
+            font-weight: 500;
         }
         
-        .skill-bar {
-            height: 10px;
-            background-color: var(--light);
-            border-radius: 5px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), #3f5efb);
-            border-radius: 5px;
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 0;
-            transition: width 1.5s ease-in-out;
+        .skill-percentage {
+            font-size: 0.9rem;
+            color: var(--primary);
+            font-weight: bold;
         }
         
         .education-item, .interests-item {
@@ -299,6 +296,32 @@
             color: var(--gray);
         }
         
+        .download-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .download-btn:hover {
+            background-color: #1e32c9;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
         @media (max-width: 900px) {
             main {
                 grid-template-columns: 1fr;
@@ -311,6 +334,12 @@
             
             .contact-links {
                 justify-content: center;
+            }
+            
+            .download-btn {
+                bottom: 20px;
+                right: 20px;
+                padding: 12px;
             }
         }
         
@@ -427,7 +456,7 @@
     </style>
 </head>
 <body>
-    
+    <div class="animated-bar"></div>
     <div class="container">
         <header>
             <div class="profile">
@@ -440,8 +469,8 @@
                     <div class="contact-links">
                         <a target="_blank" href="mailto:saifullahusmani693@gmail.com">📧 Email</a>
                         <a target="_blank" href="tel:+923215519168">📱 +92 321 5519168</a>
-                        <a target="_blank" href="https://github.com/saifullahUsmani693/" target="_blank">💻 GitHub</a>
-                        <a target="_blank" href="https://www.linkedin.com/in/saifullahusmani/" target="_blank">🔗 LinkedIn</a>
+                        <a target="_blank" href="https://github.com/saifullahUsmani693/">💻 GitHub</a>
+                        <a target="_blank" href="https://www.linkedin.com/in/saifullahusmani/">🔗 LinkedIn</a>
                     </div>
                 </div>
             </div>
@@ -472,61 +501,34 @@
                     <h2 class="section-title">📊 Technical Skills</h2>
                     <div class="skills-list">
                         <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Django</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 0%;" data-width="90%"></div>
-                            </div>
+                            <span class="skill-icon">🛠️</span>
+                            <span class="skill-name">Django, DRF, Flask, Fast API</span>
+                            <span class="skill-percentage">90%</span>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">
-                                <span>ReactJS</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 0%;" data-width="90%"></div>
-                            </div>
+                            <span class="skill-icon">⚛️</span>
+                            <span class="skill-name">ReactJS, React Native, NextJS</span>
+                            <span class="skill-percentage">90%</span>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">
-                                <span>HTML/CSS/JS</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 0%;" data-width="95%"></div>
-                            </div>
+                            <span class="skill-icon">☁️</span>
+                            <span class="skill-name">DevOps (Docker, AWS, ECS/ECR, EC2, NGINX, CI/CD)</span>
+                            <span class="skill-percentage">70%</span>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">
-                                <span>NextJS</span>
-                                <span>80%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 0%;" data-width="80%"></div>
-                            </div>
+                            <span class="skill-icon">🎨</span>
+                            <span class="skill-name">HTML/CSS/JS (TailwindCSS, Material UI, Shadcn)</span>
+                            <span class="skill-percentage">95%</span>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">
-                                <span>DevOps (Docker, AWS)</span>
-                                <span>70%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="width: 0%;" data-width="70%"></div>
-                            </div>
+                            <span class="skill-icon">🕸️</span>
+                            <span class="skill-name">Web Scraping</span>
+                            <span class="skill-percentage">95%</span>
                         </div>
                     </div>
                 </div>
                 
-                <div class="section">
-                    <h2 class="section-title">🎓 Education</h2>
-                    <div class="education-item">
-                        <div class="education-title">Bachelors in Business Administration</div>
-                        <div class="education-period">2021 - Present</div>
-                        <div>Punjab University, Lahore</div>
-                    </div>
-                </div>
+         
                 
                 <div class="section">
                     <h2 class="section-title">💡 Interests</h2>
@@ -539,8 +541,16 @@
                 
                 <div class="section">
                     <h2 class="section-title">🧔 About me</h2>
-                       
-                        <p style="margin-top: 10px;">I am a full stack web developer with strong focus on scalable architecture and exceptional error handling. My softwares are both user focused and developer focused. Their UI guides the user and helps them navigate the software easily while the code is structure in a way where there is no magic. Everybody can understand it and pick up where they left off.</p>
+                    <p style="margin-top: 10px;">I am a full stack web developer with strong focus on scalable architecture and exceptional error handling. My softwares are both user focused and developer focused. Their UI guides the user and helps them navigate the software easily while the code is structure in a way where there is no magic. Everybody can understand it and pick up where they left off.</p>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">🎓 Education</h2>
+                    <div class="education-item">
+                        <div class="education-title">Bachelors in Business Administration</div>
+                        <div class="education-period">2021 - Present</div>
+                        <div>Punjab University, Lahore</div>
+                    </div>
                 </div>
             </div>
             
@@ -614,8 +624,7 @@
                             <span class="tech-tag">ReactJS</span>
                             <span class="tech-tag">Tailwind CSS</span>
                         </div>
-                        <p>Built TurnPass, an all-in-one business management platform featuring intelligent queueing, team scheduling, payroll automation and unified messaging. I crafted a React frontend with drag-and-drop calendars and real-time queue alerts, backed by a Django API handling timesheets, secure payroll, analytics and third-party integrations (Google Calendar, Stripe, QuickBooks). In pilots, customers saw 30% faster service, 25% more throughput and 20% lower admin costs.
-</p>
+                        <p>Built TurnPass, an all-in-one business management platform featuring intelligent queueing, team scheduling, payroll automation and unified messaging. I crafted a React frontend with drag-and-drop calendars and real-time queue alerts, backed by a Django API handling timesheets, secure payroll, analytics and third-party integrations (Google Calendar, Stripe, QuickBooks). In pilots, customers saw 30% faster service, 25% more throughput and 20% lower admin costs.</p>
                     </div>
 
                     <div class="project">
@@ -638,20 +647,13 @@
         <footer>
             <p>Saif Ullah Usmani | Full Stack Developer</p>
         </footer>
+        
+        <a href="./saifullahusmani_resume.pdf" download class="download-btn" title="Download Resume PDF">📄</a>
     </div>
     
     <script>
-        // Animate skill bars on page load
+        // Animate count up numbers
         window.addEventListener('load', function() {
-            const skillBars = document.querySelectorAll('.skill-progress');
-            skillBars.forEach(bar => {
-                const width = bar.getAttribute('data-width');
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 300);
-            });
-            
-            // Count up numbers
             function countUp(element, target, duration, decimals = 0) {
                 let start = 0;
                 const step = target / (duration / 16);
@@ -664,9 +666,7 @@
                         element.textContent = start.toFixed(decimals);
                     }
                     
-                    if (decimals > 0) {
-                        element.textContent += "+";
-                    } else {
+                    if (decimals > 0 || target >= 1) {
                         element.textContent += "+";
                     }
                 }, 16);

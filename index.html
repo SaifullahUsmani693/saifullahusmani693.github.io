@@ -3,65 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saif Ullah Usmani - Full Stack Engineer</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <title>Saif Ullah Usmani - Full Stack Engineer & Scalable Systems Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb',
+                        'primary-dark': '#1d4ed8',
+                        secondary: '#7e22ce',
+                        dark: '#0f172a',
+                        light: '#f8fafc',
+                        gray: '#64748b',
+                        success: '#10b981',
+                    },
+                    animation: {
+                        'fade-in-down': 'fadeInDown 1s ease-out',
+                        'fade-in-up': 'fadeInUp 1s ease-out',
+                    },
+                    keyframes: {
+                        fadeInDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(30px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --primary: #2563eb;
-            --primary-dark: #1d4ed8;
-            --secondary: #7e22ce;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #64748b;
-            --success: #10b981;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--dark);
-            color: var(--light);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-        
         html {
             scroll-behavior: smooth;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        .gradient-text {
+            background: linear-gradient(135deg, #fff 0%, #e0e6ed 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         
-        section {
-            padding: 100px 0;
+        .gradient-bg {
+            background: linear-gradient(90deg, #2563eb, #7e22ce);
         }
         
-        h1, h2, h3, h4 {
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 1rem;
-        }
-        
-        h1 {
-            font-size: 3.5rem;
-        }
-        
-        h2 {
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        
-        h2:after {
+        .section-title:after {
             content: '';
             position: absolute;
             bottom: -10px;
@@ -69,974 +61,322 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            background: linear-gradient(90deg, #2563eb, #7e22ce);
             border-radius: 2px;
-        }
-        
-        p {
-            margin-bottom: 1.5rem;
-            color: #cbd5e1;
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-        
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
-        }
-        
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            padding: 20px 0;
-            transition: all 0.3s ease;
-        }
-        
-        header.scrolled {
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 30px;
-        }
-        
-        .nav-links a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-        
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-        
-        .nav-links a:hover:after {
-            width: 100%;
-        }
-        
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        
-        /* Hero Section - Redesigned */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            padding: 120px 0 80px;
-        }
-        
-        .hero-content {
-            text-align: center;
-            z-index: 2;
-            max-width: 900px;
-        }
-        
-        .hero-subtitle {
-            color: var(--primary);
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1rem;
-            animation: fadeInDown 1s ease-out;
-        }
-        
-        .hero h1 {
-            font-size: clamp(2.5rem, 8vw, 4.5rem);
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #fff 0%, #e0e6ed 100%);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: fadeInUp 1s ease-out 0.2s backwards;
-        }
-        
-        .hero-tagline {
-            font-size: clamp(1.2rem, 3vw, 1.8rem);
-            color: #94a3b8;
-            margin-bottom: 2rem;
-            font-weight: 400;
-            animation: fadeInUp 1s ease-out 0.4s backwards;
-        }
-        
-        .hero-description {
-            font-size: 1.1rem;
-            color: #cbd5e1;
-            max-width: 700px;
-            margin: 0 auto 2.5rem;
-            line-height: 1.8;
-            animation: fadeInUp 1s ease-out 0.6s backwards;
-        }
-        
-        .hero-btns {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 0.8s backwards;
-        }
-        
-        .hero-stats {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            margin-top: 4rem;
-            flex-wrap: wrap;
-            animation: fadeInUp 1s ease-out 1s backwards;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .stat-label {
-            font-size: 0.9rem;
-            color: #94a3b8;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
-        .canvas-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-        
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        /* About Section */
-        .about {
-            background: rgba(30, 41, 59, 0.5);
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .about-text h2 {
-            text-align: left;
-        }
-        
-        .about-text h2:after {
-            left: 0;
-            transform: none;
-        }
-        
-        .skills-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-        }
-        
-        .skill-category h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
-        
-        .skill-list {
-            list-style: none;
-        }
-        
-        .skill-list li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
         }
         
         .skill-list li:before {
             content: '▹';
-            color: var(--success);
+            color: #10b981;
             margin-right: 10px;
         }
         
-        /* Education Section */
-        .education {
-            background: rgba(30, 41, 59, 0.3);
-        }
-        
-        .education-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .education-card {
-            background: rgba(30, 41, 59, 0.7);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            border-left: 4px solid var(--primary);
-        }
-        
-        .education-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .education-title {
-            flex: 1;
-        }
-        
-        .education-title h3 {
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-        
-        .education-institution {
-            font-size: 1.1rem;
-            color: #94a3b8;
-        }
-        
-        .education-period {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        
-        .education-description {
-            color: #cbd5e1;
-            line-height: 1.8;
-            margin-bottom: 25px;
-        }
-        
-        .education-philosophy {
-            background: rgba(37, 99, 235, 0.1);
-            border-left: 3px solid var(--primary);
-            padding: 20px;
-            border-radius: 8px;
-        }
-        
-        .education-philosophy h4 {
-            color: var(--primary);
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-        
-        .education-philosophy p {
-            margin-bottom: 0;
-            font-style: italic;
-        }
-        
-        /* Experience Section */
-        .experience-timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .experience-timeline:before {
+        .timeline:before {
             content: '';
             position: absolute;
             top: 0;
             left: 30px;
             height: 100%;
             width: 2px;
-            background: var(--primary);
+            background: #2563eb;
         }
         
-        .timeline-item {
-            position: relative;
-            margin-bottom: 50px;
-            padding-left: 80px;
+        .project-card:hover .project-img {
+            transform: scale(1.05);
         }
         
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .timeline-date {
+        .nav-link:after {
+            content: '';
             position: absolute;
+            bottom: -5px;
             left: 0;
-            top: 0;
-            width: 60px;
-            height: 60px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.9rem;
-            z-index: 2;
+            width: 0;
+            height: 2px;
+            background: #2563eb;
+            transition: width 0.3s ease;
         }
         
-        .timeline-content {
-            background: rgba(30, 41, 59, 0.7);
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .timeline-content h3 {
-            color: var(--primary);
-            margin-bottom: 5px;
-        }
-        
-        .timeline-content h4 {
-            color: var(--gray);
-            font-weight: 500;
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-        
-        /* Projects Section */
-        .projects {
-            background: rgba(30, 41, 59, 0.5);
-        }
-        
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .project-card {
-            background: rgba(30, 41, 59, 0.7);
-            border-radius: 10px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
-        
-        .project-img {
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-          .project-header {
-            height: 180px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-        }
-        
-        .project-content {
-            padding: 25px;
-        }
-        
-        .project-content h3 {
-            margin-bottom: 15px;
-            color: var(--light);
-        }
-        
-        .project-content p {
-            color: #94a3b8;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-        
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .tech-tag {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--primary);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-        }
-        
-        
-        .project-content {
-            padding: 25px;
-        }
-        
-        .project-content h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-        
-        .project-tech {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 15px 0;
-        }
-        
-        .tech-tag {
-            background: rgba(37, 99, 235, 0.2);
-            color: var(--primary);
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        
-        .project-links {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .project-link {
-            flex: 1;
-            text-align: center;
-        }
-        
-        /* Contact Section */
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-        
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 15px;
-            background: rgba(30, 41, 59, 0.5);
-            border-radius: 10px;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-item:hover {
-            background: rgba(30, 41, 59, 0.8);
-            transform: translateX(5px);
-        }
-        
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        
-        .contact-details h3 {
-            color: var(--primary);
-            font-size: 1rem;
-            margin-bottom: 5px;
-        }
-        
-        .contact-details p {
-            margin: 0;
-            word-break: break-word;
-        }
-        
-        .contact-form {
-            background: rgba(30, 41, 59, 0.7);
-            padding: 30px;
-            border-radius: 10px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .form-control {
+        .nav-link:hover:after {
             width: 100%;
-            padding: 12px 15px;
-            background: rgba(15, 23, 42, 0.7);
-            border: 1px solid #334155;
-            border-radius: 5px;
-            color: var(--light);
-            transition: border 0.3s ease;
-            font-family: inherit;
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        .form-status {
-            padding: 12px;
-            border-radius: 5px;
-            margin-bottom: 20px;
-            display: none;
-        }
-        
-        .form-status.success {
-            background: rgba(16, 185, 129, 0.2);
-            border: 1px solid var(--success);
-            color: var(--success);
-        }
-        
-        .form-status.error {
-            background: rgba(239, 68, 68, 0.2);
-            border: 1px solid #ef4444;
-            color: #ef4444;
-        }
-        
-        /* Footer */
-        footer {
-            background: rgba(15, 23, 42, 0.9);
-            padding: 50px 0 20px;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 20px;
-        }
-        
-        .social-links a {
-            color: var(--light);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(37, 99, 235, 0.1);
-            border-radius: 50%;
-        }
-        
-        .social-links a:hover {
-            background: var(--primary);
-            transform: translateY(-3px);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #334155;
-            color: #94a3b8;
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            h1 {
-                font-size: 2.8rem;
-            }
-            
-            h2 {
-                font-size: 2.2rem;
-            }
-            
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .about-text h2 {
-                text-align: center;
-            }
-            
-            .about-text h2:after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-            
-            .hero-stats {
-                gap: 30px;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                background: rgba(15, 23, 42, 0.95);
-                backdrop-filter: blur(10px);
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                transform: translateY(-150%);
-                transition: transform 0.4s ease;
-                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            }
-            
-            .nav-links.active {
-                transform: translateY(0);
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .hero-btns {
-                flex-direction: column;
-                width: 100%;
-                max-width: 300px;
-                margin: 0 auto;
-            }
-            
-            .btn {
-                width: 100%;
-                text-align: center;
-            }
-            
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 30px;
-            }
-            
-            .experience-timeline:before {
-                left: 30px;
-            }
-            
-            .timeline-item {
-                padding-left: 80px;
-            }
-            
-            .education-header {
-                flex-direction: column;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            section {
-                padding: 70px 0;
-            }
-            
-            .hero-stats {
-                flex-direction: column;
-                gap: 25px;
-            }
         }
     </style>
 </head>
-<body>
+<body class="bg-dark text-light font-sans">
     <!-- Header -->
-    <header>
-        <div class="container nav-container">
-            <div class="logo">Saif Ullah Usmani</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <header id="header" class="fixed top-0 left-0 w-full z-50 py-5 transition-all duration-300">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text">Saif Ullah Usmani</div>
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-8">
+                        <li><a href="#home" class="nav-link text-light font-medium relative transition-colors duration-300 hover:text-primary">Home</a></li>
+                        <li><a href="#about" class="nav-link text-light font-medium relative transition-colors duration-300 hover:text-primary">About</a></li>
+                        <li><a href="#expertise" class="nav-link text-light font-medium relative transition-colors duration-300 hover:text-primary">Expertise</a></li>
+                        <li><a href="#projects" class="nav-link text-light font-medium relative transition-colors duration-300 hover:text-primary">Projects</a></li>
+                        <li><a href="#experience" class="nav-link text-light font-medium relative transition-colors duration-300 hover:text-primary">Experience</a></li>
+                        <li><a href="#education" class="nav-link text-light font-medium relative transition-colors duration-300 hover:text-primary">Education</a></li>
+                        <li><a href="#contact" class="nav-link text-light font-medium relative transition-colors duration-300 hover:text-primary">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="md:hidden text-2xl cursor-pointer" id="mobile-menu-btn">
+                    ☰
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden fixed top-0 left-0 w-full bg-dark bg-opacity-95 backdrop-blur-lg transform -translate-y-full transition-transform duration-400 pt-20 pb-10 shadow-lg">
+            <ul class="flex flex-col items-center space-y-6">
+                <li><a href="#home" class="text-light font-medium text-lg transition-colors duration-300 hover:text-primary">Home</a></li>
+                <li><a href="#about" class="text-light font-medium text-lg transition-colors duration-300 hover:text-primary">About</a></li>
+                <li><a href="#expertise" class="text-light font-medium text-lg transition-colors duration-300 hover:text-primary">Expertise</a></li>
+                <li><a href="#projects" class="text-light font-medium text-lg transition-colors duration-300 hover:text-primary">Projects</a></li>
+                <li><a href="#experience" class="text-light font-medium text-lg transition-colors duration-300 hover:text-primary">Experience</a></li>
+                <li><a href="#education" class="text-light font-medium text-lg transition-colors duration-300 hover:text-primary">Education</a></li>
+                <li><a href="#contact" class="text-light font-medium text-lg transition-colors duration-300 hover:text-primary">Contact</a></li>
             </ul>
-            <div class="mobile-menu">☰</div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-subtitle">Full Stack Engineer</div>
-                <h1>Saif Ullah Usmani</h1>
-                <div class="hero-tagline">Scalable Systems & High-Throughput Architect</div>
-                <p class="hero-description">Architecting enterprise-grade, high-performance systems with 7+ years of expertise in distributed architectures, real-time communication, and backend optimization. Transforming complex business requirements into production-ready SaaS platforms that deliver measurable impact.</p>
-                <div class="hero-btns">
-                    <a href="#projects" class="btn">View My Work</a>
-                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20 pb-16">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center max-w-4xl mx-auto">
+                <div class="text-primary font-semibold text-lg md:text-xl uppercase tracking-wider mb-4 animate-fade-in-down">Full Stack Engineer</div>
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 gradient-text animate-fade-in-up" style="animation-delay: 0.2s">Saif Ullah Usmani</h1>
+                <div class="text-xl md:text-2xl lg:text-3xl text-gray-400 mb-8 animate-fade-in-up" style="animation-delay: 0.4s">Scalable Systems & High-Throughput Architect</div>
+                <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-10 animate-fade-in-up" style="animation-delay: 0.6s">
+                    Architecting enterprise-grade, high-performance systems with 7+ years of expertise in distributed architectures, real-time communication, and backend optimization. Transforming complex business requirements into production-ready SaaS platforms that deliver measurable impact.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mb-16 animate-fade-in-up" style="animation-delay: 0.8s">
+                    <a href="#projects" class="px-8 py-3 gradient-bg text-white font-semibold rounded-lg shadow-lg shadow-blue-500/30 transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/40 hover:-translate-y-1 text-center">View My Work</a>
+                    <a href="#contact" class="px-8 py-3 bg-transparent border-2 border-primary text-primary font-semibold rounded-lg transition-all duration-300 hover:bg-primary hover:text-white text-center">Get In Touch</a>
                 </div>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number">7+</div>
-                        <div class="stat-label">Years Experience</div>
+                <div class="flex flex-wrap justify-center gap-8 md:gap-12 animate-fade-in-up" style="animation-delay: 1s">
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold gradient-text">7+</div>
+                        <div class="text-gray-400 text-sm uppercase tracking-wider mt-2">Years Experience</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Projects Delivered</div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold gradient-text">50+</div>
+                        <div class="text-gray-400 text-sm uppercase tracking-wider mt-2">Projects Delivered</div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number">99.9%</div>
-                        <div class="stat-label">Uptime SLA</div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold gradient-text">99.9%</div>
+                        <div class="text-gray-400 text-sm uppercase tracking-wider mt-2">Uptime SLA</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl md:text-4xl font-bold gradient-text">10M+</div>
+                        <div class="text-gray-400 text-sm uppercase tracking-wider mt-2">API Requests/Day</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="canvas-container" id="canvas-container"></div>
+        
+        <!-- Background Animation -->
+        <div class="absolute top-0 left-0 w-full h-full -z-10 opacity-20">
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-primary blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-secondary blur-3xl animate-pulse" style="animation-delay: 1s"></div>
+        </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Accomplished full-stack engineer with 7+ years of expertise in architecting enterprise-grade, high-performance systems designed for scalability and fault tolerance. Demonstrated proficiency in distributed architectures, real-time communication protocols, telecommunications integrations, webhook infrastructure, and backend optimization.</p>
-                    <p>Proven track record of translating sophisticated business requirements into production-ready SaaS platforms that deliver measurable impact. Recognized for implementing elegant architectural patterns, engineering resilient backend systems, and crafting intuitive frontend experiences that prioritize user engagement and performance.</p>
-                    <a href="#contact" class="btn">Download Resume</a>
+    <section id="about" class="py-20 bg-gray-900 bg-opacity-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative section-title">About Me</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-1 gap-12 items-center">
+                <div>
+<div class="max-w-2xl m-auto">
+                    <p class="text-gray-300 mb-6">
+                        Accomplished full-stack engineer with 7+ years of expertise in architecting enterprise-grade, high-performance systems designed for scalability and fault tolerance. Demonstrated proficiency in distributed architectures, real-time communication protocols, telecommunications integrations, webhook infrastructure, and backend optimization.
+                    </p>
+                    <p class="text-gray-300 mb-8">
+                        Proven track record of translating sophisticated business requirements into production-ready SaaS platforms that deliver measurable impact. Recognized for implementing elegant architectural patterns, engineering resilient backend systems, and crafting intuitive frontend experiences that prioritize user engagement and performance.
+                    </p>
+                 
                 </div>
-                <div class="skills">
-                    <div class="skills-container">
-                        <div class="skill-category">
-                            <h3>Backend Engineering</h3>
-                            <ul class="skill-list">
-                                <li>Python, Django, DRF</li>
-                                <li>Celery, Redis, RabbitMQ</li>
-                                <li>Webhooks & High throughput API design</li>
-                                <li>Telecom APIs (Telnyx)</li>
-                                <li>Event driven architecture</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3>Frontend Engineering</h3>
-                            <ul class="skill-list">
-                                <li>ReactJS, NextJS, TypeScript</li>
-                                <li>Redux Toolkit, TailwindCSS</li>
-                                <li>Material UI, Shadcn</li>
-                                <li>Real time interfaces</li>
-                                <li>Drag and drop UX</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3>DevOps & Infrastructure</h3>
-                            <ul class="skill-list">
-                                <li>Docker, AWS (EC2, ECS/ECR, S3)</li>
-                                <li>CI/CD pipelines, Horizontal scaling</li>
-                                <li>Distributed caching, Worker orchestration</li>
-                                <li>Monitoring & observability</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3>Databases</h3>
-                            <ul class="skill-list">
-                                <li>PostgreSQL, MySQL</li>
-                                <li>MongoDB, Redis</li>
-                            </ul>
-                        </div>
+</div>
+</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+                        <h3 class="text-primary text-xl font-semibold mb-4">Backend Engineering</h3>
+                        <ul class="skill-list text-gray-300 space-y-2">
+                            <li>Python, Django, DRF</li>
+                            <li>Celery, Redis, RabbitMQ</li>
+                            <li>Webhooks & High throughput API design</li>
+                            <li>Telecom APIs (Telnyx)</li>
+                            <li>Event driven architecture</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+                        <h3 class="text-primary text-xl font-semibold mb-4">Frontend Engineering</h3>
+                        <ul class="skill-list text-gray-300 space-y-2">
+                            <li>ReactJS, NextJS, TypeScript</li>
+                            <li>Redux Toolkit, TailwindCSS</li>
+                            <li>Material UI, Shadcn</li>
+                            <li>Real time interfaces</li>
+                            <li>Drag and drop UX</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+                        <h3 class="text-primary text-xl font-semibold mb-4">DevOps & Infrastructure</h3>
+                        <ul class="skill-list text-gray-300 space-y-2">
+                            <li>Docker, AWS (EC2, ECS/ECR, S3)</li>
+                            <li>CI/CD pipelines, Horizontal scaling</li>
+                            <li>Distributed caching, Worker orchestration</li>
+                            <li>Monitoring & observability</li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+                        <h3 class="text-primary text-xl font-semibold mb-4">Databases</h3>
+                        <ul class="skill-list text-gray-300 space-y-2">
+                            <li>PostgreSQL, MySQL</li>
+                            <li>MongoDB, Redis</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
- <section id="projects">
-        <div class="container">
-            <h2><span>Featured Projects</span></h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-header">🌐</div>
-                    <div class="project-content">
-                        <h3>Grevent</h3>
-                        <p>Comprehensive social networking platform for entrepreneurs featuring custom SEO engine, real-time messaging, digital marketplace, and high-performance feed algorithms. Reduced page load times by 65%.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Celery</span>
-                            <span class="tech-tag">Redis</span>
-                            <span class="tech-tag">WebSocket</span>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="py-20">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative section-title">Scalable Systems Expertise</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-800 bg-opacity-50 p-8 rounded-2xl mb-10">
+                    <h3 class="text-2xl font-bold text-primary mb-6">Architecting for Millions of Requests</h3>
+                    <p class="text-gray-300 mb-6">
+                        I specialize in designing and implementing systems that can handle massive traffic loads while maintaining performance and reliability. My expertise includes:
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-server text-primary text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white mb-2">Horizontal Scaling</h4>
+                                <p class="text-gray-400">Designing stateless applications that can scale horizontally across multiple servers and regions</p>
+                            </div>
                         </div>
-                        <a href="https://grevent.keynou.com" target="_blank" class="btn">Visit Site</a>
+                        <div class="flex items-start">
+                            <i class="fas fa-database text-primary text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white mb-2">Database Optimization</h4>
+                                <p class="text-gray-400">Implementing database sharding, replication, and connection pooling for high-throughput systems</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-bolt text-primary text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white mb-2">Caching Strategies</h4>
+                                <p class="text-gray-400">Multi-layer caching with Redis and CDN implementations to reduce database load</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-cloud text-primary text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white mb-2">AWS Infrastructure</h4>
+                                <p class="text-gray-400">Deploying on AWS with auto-scaling groups, load balancers, and containerized services</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-tachometer-alt text-primary text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white mb-2">Performance Monitoring</h4>
+                                <p class="text-gray-400">Implementing comprehensive monitoring and alerting for system health and performance</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-code-branch text-primary text-xl mt-1 mr-4"></i>
+                            <div>
+                                <h4 class="text-lg font-semibold text-white mb-2">Microservices Architecture</h4>
+                                <p class="text-gray-400">Building decoupled, independently scalable services with well-defined APIs</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="project-card">
-                    <div class="project-header">📋</div>
-                    <div class="project-content">
-                        <h3>ChopLine</h3>
-                        <p>Enterprise-grade queue management system for salons with real-time updates, staff management, and analytics. Maintains 99.9% uptime SLA while handling 10,000+ daily appointments.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">WebSocket</span>
-                            <span class="tech-tag">AWS ECS</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">React</span>
-                        </div>
-                        <a href="https://chopline.com" target="_blank" class="btn">Visit Site</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-header">🔄</div>
-                    <div class="project-content">
-                        <h3>TurnPass</h3>
-                        <p>Integrated business operations platform with scheduling automation, payroll processing, and API integrations with Stripe, QuickBooks, and Google Calendar. Processes 5,000+ requests per minute.</p>
-                        <div class="tech-tags">
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">Next.js</span>
-                            <span class="tech-tag">Stripe API</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                            <span class="tech-tag">Redis</span>
-                        </div>
-                        <a href="https://turnpass.app" target="_blank" class="btn">Visit Site</a>
-                    </div>
+                
+                <div class="bg-gradient-to-r from-primary to-secondary p-8 rounded-2xl text-center">
+                    <h3 class="text-2xl font-bold text-white mb-4">Ready to Build Your Scalable Solution?</h3>
+                    <p class="text-white mb-6">Let's discuss how I can help architect and build your high-performance application</p>
+                    <a href="#contact" class="px-6 py-3 bg-white text-primary font-semibold rounded-lg transition-all duration-300 hover:bg-gray-100 hover:shadow-lg">
+                        Start a Conversation
+                    </a>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
-            <h2>Education & Philosophy</h2>
-            <div class="education-content">
-                <div class="education-card">
-                    <div class="education-header">
-                        <div class="education-title">
-                            <h3>Bachelor of Business Administration (BBA)</h3>
-                            <div class="education-institution">Punjab University, Lahore</div>
-                        </div>
-                        <div class="education-period">2021 - Present</div>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-900 bg-opacity-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative section-title">Featured Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-gray-800 bg-opacity-50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10">
+                    <div class="project-img h-48 gradient-bg flex items-center justify-center text-white text-5xl transition-transform duration-500">
+                        🌐
                     </div>
-                    <p class="education-description">My business education complements my technical expertise by providing strong foundations in project management, team leadership, strategic communication, and understanding business objectives. This unique combination allows me to bridge the gap between technical implementation and business strategy, ensuring that solutions not only function optimally but also align with organizational goals and deliver measurable value.</p>
-                    <div class="education-philosophy">
-                        <h4>Professional Philosophy</h4>
-                        <p>I believe that exceptional software engineering extends beyond writing clean code to creating systems that solve real business problems efficiently and scalably. My approach combines technical excellence with strategic thinking, focusing on building maintainable architectures that can evolve with business needs. With my background in both technology and business administration, I'm uniquely positioned to understand stakeholder requirements and translate them into robust technical solutions.</p>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">Grevent</h3>
+                        <p class="text-gray-300 mb-4">
+                            Comprehensive social networking platform for entrepreneurs featuring custom SEO engine, real-time messaging, digital marketplace, and high-performance feed algorithms. Reduced page load times by 65%.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="bg-blue-500 bg-opacity-20 text-primary px-3 py-1 rounded-full text-sm">Django</span>
+                            <span class="bg-blue-500 bg-opacity-20 text-primary px-3 py-1 rounded-full text-sm">React</span>
+                            <span class="bg-blue-500 bg-opacity-20 text-primary px-3 py-1 rounded-full text-sm">Celery</span>
+                            <span class="bg-blue-500 bg-opacity-20 text-primary px-3 py-1 rounded-full text-sm">Redis</span>
+                            <span class="bg-blue-500 bg-opacity-20 text-primary px-3 py-1 rounded-full text-sm">WebSocket</span>
+                        </div>
+                        <a href="https://grevent.keynou.com" target="_blank" class="block w-full text-center px-4 py-2 gradient-bg text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg">
+                            Visit Site
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card bg-gray-800 bg-opacity-50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10">
+                    <div class="project-img h-48 gradient-bg flex items-center justify-center text-white text-5xl transition-transform duration-500">
+                        📋
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">ChopLine</h3>
+                        <p class="text-gray-300 mb-4">
+                            Enterprise-grade queue management system for salons with real-time updates, staff management, and analytics. Maintains 99.9% uptime SLA while handling 10,000+ daily appointments.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="bg-blue-500 bg-opacity-20 text-primary px-3 py-1 rounded-full text-sm">Django</span>
+                            <span class="bg-blue-500 bg-opacity-20 text-primary px-3 py-1 rounded-full text-sm">WebSocket</span>
+                            <span class="bg-blue-500 bg-opacity-20 text-primary px-3 py-1 rounded-full text-sm">AWS ECS</span>
+                            <span class="bg-blue-500 bg-opacity-20 text-primary px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+                            <span class="bg-blue-500 bg-opacity-20 text-primary px-3 py-1 rounded-full text-sm">React</span>
+                        </div>
+                        <a href="https://chopline.com" target="_blank" class="block w-full text-center px-4 py-2 gradient-bg text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg">
+                            Visit Site
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card bg-gray-800 bg-opacity-50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-blue-500/10">
+                    <div class="project-img h-48 gradient-bg flex items-center justify-center text-white text-5xl transition-transform duration-500">
+                        🔄
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-white mb-3">TurnPass</h3>
+                        <p class="text-gray-300 mb-4">
+                            Integrated business operations platform with scheduling automation, payroll processing, and API integrations with Stripe, QuickBooks, and Google Calendar. Processes 5,000+ requests per minute.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="bg-blue-500 bg-opacity-20 text-primary px-3 py-1 rounded-full text-sm">Django</span>
+                            <span class="bg-blue-500 bg-opacity-20 text-primary px-3 py-1 rounded-full text-sm">Next.js</span>
+                            <span class="bg-blue-500 bg-opacity-20 text-primary px-3 py-1 rounded-full text-sm">Stripe API</span>
+                            <span class="bg-blue-500 bg-opacity-20 text-primary px-3 py-1 rounded-full text-sm">PostgreSQL</span>
+                            <span class="bg-blue-500 bg-opacity-20 text-primary px-3 py-1 rounded-full text-sm">Redis</span>
+                        </div>
+                        <a href="https://turnpass.app" target="_blank" class="block w-full text-center px-4 py-2 gradient-bg text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg">
+                            Visit Site
+                        </a>
                     </div>
                 </div>
             </div>
@@ -1044,20 +384,203 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2>Professional Experience</h2>
-            <div class="experience-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">2024</div>
-                    <div class="timeline-content">
-                        <h3>Software Engineer — Full Time</h3>
-                        <h4>Dec 2024 – Present</h4>
-                        <p>Architect and engineer high-performance backend systems utilizing Django, Redis, and Celery for enterprise-scale applications. Design horizontally scalable microservice architectures with optimized database query patterns and distributed caching strategies. Lead API performance optimization initiatives and implement high-availability deployment strategies across production environments.</p>
+    <section id="experience" class="py-20">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative section-title">Professional Experience</h2>
+            <div class="max-w-3xl mx-auto relative timeline">
+                <!-- Experience 1 -->
+                <div class="mb-12 relative pl-20">
+                    <div class="absolute left-0 top-0 w-14 h-14 gradient-bg rounded-full flex items-center justify-center text-white font-bold text-sm z-10">
+                        2024
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-primary mb-1">Software Engineer — Full Time</h3>
+                        <h4 class="text-gray-400 font-medium mb-4">Dec 2024 – Present</h4>
+                        <p class="text-gray-300">
+                            Architect and engineer high-performance backend systems utilizing Django, Redis, and Celery for enterprise-scale applications. Design horizontally scalable microservice architectures with optimized database query patterns and distributed caching strategies. Lead API performance optimization initiatives and implement high-availability deployment strategies across production environments.
+                        </p>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-date">2019</div>
-                    <div class="timeline-content">
-                        <h3>Full Stack Python Developer — Freelance (Fiverr)</h3>
-                        <h4>Sep 2019 – Present</h4>
+                
+                <!-- Experience 2 -->
+                <div class="mb-12 relative pl-20">
+                    <div class="absolute left-0 top-0 w-14 h-14 gradient-bg rounded-full flex items-center justify-center text-white font-bold text-sm z-10">
+                        2019
+                    </div>
+                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
+                        <h3 class="text-xl font-bold text-primary mb-1">Full Stack Python Developer — Freelance (Fiverr)</h3>
+                        <h4 class="text-gray-400 font-medium mb-4">Sep 2019 – Present</h4>
+                        <p class="text-gray-300">
+                            Delivered 50+ custom SaaS solutions for clients worldwide, specializing in scalable architectures and high-performance applications. Developed full-stack applications with Django backends and React frontends, implementing real-time features, payment integrations, and complex business logic. Maintained 99.9% uptime for client applications while handling millions of API requests.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-20 bg-gray-900 bg-opacity-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative section-title">Education & Philosophy</h2>
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-gray-800 bg-opacity-70 p-8 rounded-2xl border-l-4 border-primary">
+                    <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-6">
+                        <div class="mb-4 md:mb-0">
+                            <h3 class="text-2xl font-bold text-primary mb-2">Bachelor of Business Administration (BBA)</h3>
+                            <div class="text-gray-400 text-lg">Punjab University, Lahore</div>
+                        </div>
+                        <div class="gradient-bg text-white px-4 py-2 rounded-full font-semibold text-sm inline-block">
+                            2021 - Present
+                        </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        My business education complements my technical expertise by providing strong foundations in project management, team leadership, strategic communication, and understanding business objectives. This unique combination allows me to bridge the gap between technical implementation and business strategy, ensuring that solutions not only function optimally but also align with organizational goals and deliver measurable value.
+                    </p>
+                    <div class="bg-primary bg-opacity-10 border-l-4 border-primary p-5 rounded-lg">
+                        <h4 class="text-lg font-semibold text-primary mb-3">Professional Philosophy</h4>
+                        <p class="text-gray-300 italic">
+                            I believe that exceptional software engineering extends beyond writing clean code to creating systems that solve real business problems efficiently and scalably. My approach combines technical excellence with strategic thinking, focusing on building maintainable architectures that can evolve with business needs. With my background in both technology and business administration, I'm uniquely positioned to understand stakeholder requirements and translate them into robust technical solutions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16 relative section-title">Get In Touch</h2>
+            <div class="mx-auto ">
+                <div class="flex gap-4 items-center justify-center md:flex-row flex-col">
+                    <div class="flex items-start p-5 bg-gray-800 bg-opacity-50 rounded-xl transition-all duration-300 hover:bg-gray-800 hover:translate-x-1">
+                        <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center text-white text-xl mr-4 flex-shrink-0">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-primary font-semibold mb-1">Email</h3>
+                            <p class="text-gray-300">saifullahusmani693@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-5 bg-gray-800 bg-opacity-50 rounded-xl transition-all duration-300 hover:bg-gray-800 hover:translate-x-1">
+                        <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center text-white text-xl mr-4 flex-shrink-0">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-primary font-semibold mb-1">Phone</h3>
+                            <p class="text-gray-300">+92 321 5519168</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start p-5 bg-gray-800 bg-opacity-50 rounded-xl transition-all duration-300 hover:bg-gray-800 hover:translate-x-1">
+                        <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center text-white text-xl mr-4 flex-shrink-0">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-primary font-semibold mb-1">Location</h3>
+                            <p class="text-gray-300">Islamabad, Pakistan</p>
+                        </div>
+                    </div>
+                  
+                </div>
+             
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-dark bg-opacity-90">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="text-2xl font-bold gradient-text mb-4 md:mb-0">Saif Ullah Usmani</div>
+                <div class="flex space-x-6">
+                 
+                    <a href="https://github.com/saifullahusmani693/" class="text-gray-400 text-xl transition-all duration-300 hover:text-primary">
+                        <i class="fab fa-github"></i>
+                    </a>
+             
+                    <a href="https://www.linkedin.com/in/saifullahusmani/" class="text-gray-400 text-xl transition-all duration-300 hover:text-primary">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="text-center pt-8 border-t border-gray-800">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2025 Saif Ullah Usmani. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('bg-dark', 'bg-opacity-95', 'backdrop-blur-md', 'py-4', 'shadow-lg');
+            } else {
+                header.classList.remove('bg-dark', 'bg-opacity-95', 'backdrop-blur-md', 'py-4', 'shadow-lg');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('translate-y-0');
+            mobileMenu.classList.toggle('-translate-y-full');
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('translate-y-0');
+                mobileMenu.classList.add('-translate-y-full');
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real implementation, you would send the form data to a server
+            // For this example, we'll just show a success message
+            formStatus.classList.remove('hidden');
+            formStatus.classList.add('bg-green-500', 'bg-opacity-20', 'border', 'border-green-500', 'text-green-500');
+            formStatus.textContent = 'Thank you for your message! I will get back to you soon.';
+            
+            // Reset form
+            contactForm.reset();
+            
+            // Hide status message after 5 seconds
+            setTimeout(() => {
+                formStatus.classList.add('hidden');
+                formStatus.classList.remove('bg-green-500', 'bg-opacity-20', 'border', 'border-green-500', 'text-green-500');
+            }, 5000);
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

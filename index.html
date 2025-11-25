@@ -38,6 +38,69 @@
         }
     </script>
     <style>
+           @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .skill-card {
+            animation: fadeInUp 0.6s ease-out forwards;
+            transition: all 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .skill-card:nth-child(1) { animation-delay: 0.1s; }
+        .skill-card:nth-child(2) { animation-delay: 0.2s; }
+        .skill-card:nth-child(3) { animation-delay: 0.3s; }
+        .skill-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        .gradient-border {
+            position: relative;
+            background: linear-gradient(145deg, rgba(59, 130, 246, 0.1), rgba(147, 51, 234, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 1rem;
+            padding: 2px;
+            background: linear-gradient(145deg, rgba(59, 130, 246, 0.5), rgba(147, 51, 234, 0.5));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .gradient-border:hover::before {
+            opacity: 1;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(59, 130, 246, 0.15);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+        }
+        
+        .badge:hover {
+            background: rgba(59, 130, 246, 0.25);
+            border-color: rgba(59, 130, 246, 0.5);
+        }
         html {
             scroll-behavior: smooth;
         }
@@ -197,48 +260,137 @@
                 </div>
 </div>
 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
-                        <h3 class="text-primary text-xl font-semibold mb-4">Backend Engineering</h3>
-                        <ul class="skill-list text-gray-300 space-y-2">
-                            <li>Python, Django, DRF</li>
-                            <li>Celery, Redis, RabbitMQ</li>
-                            <li>Webhooks & High throughput API design</li>
-                            <li>Telecom APIs (Telnyx)</li>
-                            <li>Event driven architecture</li>
-                        </ul>
+           
+            </div>
+        </div>
+    </section>
+ <section class="max-w-7xl mx-auto py-20">
+        <!-- Header Section -->
+        <div class="text-center mb-16">
+            <div class="inline-block mb-4">
+                <span class="px-4 py-2 bg-blue-500 bg-opacity-10 border border-blue-500 border-opacity-30 rounded-full text-blue-400 text-sm font-medium">
+                    Technical Expertise
+                </span>
+            </div>
+            <h2 class="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                Full-Stack Mastery
+            </h2>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                Building scalable, production-ready systems from frontend to infrastructure with modern technologies and best practices
+            </p>
+        </div>
+
+        <!-- Skills Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Backend Engineering -->
+            <div class="skill-card gradient-border bg-gray-800 bg-opacity-50 backdrop-blur-sm p-8 rounded-xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-500 rounded-full filter blur-3xl opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                
+                <div class="relative z-10">
+                    <div class="w-14 h-14 bg-blue-500 bg-opacity-20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
+                        </svg>
                     </div>
-                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
-                        <h3 class="text-primary text-xl font-semibold mb-4">Frontend Engineering</h3>
-                        <ul class="skill-list text-gray-300 space-y-2">
-                            <li>ReactJS, NextJS, TypeScript</li>
-                            <li>Redux Toolkit, TailwindCSS</li>
-                            <li>Material UI, Shadcn</li>
-                            <li>Real time interfaces</li>
-                            <li>Drag and drop UX</li>
-                        </ul>
+                    
+                    <h3 class="text-2xl font-bold mb-4 text-white">Backend Engineering</h3>
+                    
+                    <div class="space-y-2.5">
+                        <span class="badge block text-gray-300">Python, Django, DRF</span>
+                        <span class="badge block text-gray-300">Celery, Redis, RabbitMQ</span>
+                        <span class="badge block text-gray-300">High-throughput APIs</span>
+                        <span class="badge block text-gray-300">Webhooks & Telecom APIs</span>
+                        <span class="badge block text-gray-300">Event-driven architecture</span>
                     </div>
-                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
-                        <h3 class="text-primary text-xl font-semibold mb-4">DevOps & Infrastructure</h3>
-                        <ul class="skill-list text-gray-300 space-y-2">
-                            <li>Docker, AWS (EC2, ECS/ECR, S3)</li>
-                            <li>CI/CD pipelines, Horizontal scaling</li>
-                            <li>Distributed caching, Worker orchestration</li>
-                            <li>Monitoring & observability</li>
-                        </ul>
+                </div>
+            </div>
+
+            <!-- Frontend Engineering -->
+            <div class="skill-card gradient-border bg-gray-800 bg-opacity-50 backdrop-blur-sm p-8 rounded-xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500 rounded-full filter blur-3xl opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                
+                <div class="relative z-10">
+                    <div class="w-14 h-14 bg-purple-500 bg-opacity-20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
                     </div>
-                    <div class="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
-                        <h3 class="text-primary text-xl font-semibold mb-4">Databases</h3>
-                        <ul class="skill-list text-gray-300 space-y-2">
-                            <li>PostgreSQL, MySQL</li>
-                            <li>MongoDB, Redis</li>
-                        </ul>
+                    
+                    <h3 class="text-2xl font-bold mb-4 text-white">Frontend Engineering</h3>
+                    
+                    <div class="space-y-2.5">
+                        <span class="badge block text-gray-300">React, Next.js, TypeScript</span>
+                        <span class="badge block text-gray-300">Redux Toolkit</span>
+                        <span class="badge block text-gray-300">Tailwind, Material UI, Shadcn</span>
+                        <span class="badge block text-gray-300">Real-time interfaces</span>
+                        <span class="badge block text-gray-300">Drag-and-drop UX</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DevOps & Infrastructure -->
+            <div class="skill-card gradient-border bg-gray-800 bg-opacity-50 backdrop-blur-sm p-8 rounded-xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500 rounded-full filter blur-3xl opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                
+                <div class="relative z-10">
+                    <div class="w-14 h-14 bg-pink-500 bg-opacity-20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+                        </svg>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mb-4 text-white">DevOps & Infrastructure</h3>
+                    
+                    <div class="space-y-2.5">
+                        <span class="badge block text-gray-300">Docker, AWS (EC2, ECS, S3)</span>
+                        <span class="badge block text-gray-300">CI/CD pipelines</span>
+                        <span class="badge block text-gray-300">Horizontal scaling</span>
+                        <span class="badge block text-gray-300">Distributed caching</span>
+                        <span class="badge block text-gray-300">Worker orchestration</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Databases -->
+            <div class="skill-card gradient-border bg-gray-800 bg-opacity-50 backdrop-blur-sm p-8 rounded-xl relative overflow-hidden group">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-500 rounded-full filter blur-3xl opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                
+                <div class="relative z-10">
+                    <div class="w-14 h-14 bg-cyan-500 bg-opacity-20 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                        <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
+                        </svg>
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold mb-4 text-white">Database Systems</h3>
+                    
+                    <div class="space-y-2.5">
+                        <span class="badge block text-gray-300">PostgreSQL</span>
+                        <span class="badge block text-gray-300">MySQL</span>
+                        <span class="badge block text-gray-300">MongoDB</span>
+                        <span class="badge block text-gray-300">Redis</span>
+                        <span class="badge block text-gray-300">Query optimization</span>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
+        <!-- Bottom CTA/Stats Section -->
+        <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="p-6 bg-gray-800 bg-opacity-30 backdrop-blur-sm rounded-xl border border-gray-700">
+                <div class="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent mb-2">10+</div>
+                <div class="text-gray-400">Technologies Mastered</div>
+            </div>
+            <div class="p-6 bg-gray-800 bg-opacity-30 backdrop-blur-sm rounded-xl border border-gray-700">
+                <div class="text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-2">Full-Stack</div>
+                <div class="text-gray-400">End-to-End Development</div>
+            </div>
+            <div class="p-6 bg-gray-800 bg-opacity-30 backdrop-blur-sm rounded-xl border border-gray-700">
+                <div class="text-4xl font-bold bg-gradient-to-r from-pink-400 to-cyan-400 bg-clip-text text-transparent mb-2">Production</div>
+                <div class="text-gray-400">Ready Systems</div>
+            </div>
+        </div>
+    </section>
     <!-- Expertise Section -->
     <section id="expertise" class="py-20">
         <div class="container mx-auto px-4 md:px-6">
@@ -504,7 +656,7 @@
                     </a>
                 </div>
             </div>
-            <div class="text-center pt-8 border-t border-gray-800">
+            <div class="text-center pt-8 border-t border-gray-300">
                 <p class="text-gray-500 text-sm">
                     &copy; 2025 Saif Ullah Usmani. All rights reserved.
                 </p>
